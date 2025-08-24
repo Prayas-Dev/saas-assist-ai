@@ -2,6 +2,8 @@
   "extends": "@workspace/typescript-config/react-library.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "moduleResolution": "bundler", // or "node" (classic behavior)
+    "module": "esnext", // keep this if you're using Next.js
     "paths": {
       "@workspace/ui/*": ["./src/*"]
     }
