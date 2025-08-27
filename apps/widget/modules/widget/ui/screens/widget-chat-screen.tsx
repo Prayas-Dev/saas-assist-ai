@@ -80,7 +80,7 @@ export const WidgetChatScreen = () => {
         { initialNumItems: 10 },
     )
 
-    const { topElementRef, handleLoadMore, canloadMore, isLoadingMore } = useInfiniteScroll({
+    const { topElementRef, handleLoadMore, canLoadMore, isLoadingMore } = useInfiniteScroll({
         status: messages.status,
         loadMore: messages.loadMore,
         loadSize: 10,
@@ -131,7 +131,7 @@ export const WidgetChatScreen = () => {
             <AIConversation>
                 <AIConversationContent>
                     <InfiniteScrollTrigger 
-                        canLoadMore={canloadMore}
+                        canLoadMore={canLoadMore}
                         isLoadingMore={isLoadingMore}
                         onLoadMore={handleLoadMore}
                         ref={topElementRef}

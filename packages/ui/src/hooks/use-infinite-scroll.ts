@@ -46,7 +46,7 @@ export const useInfiniteScroll =({
     return {
         topElementRef,
         handleLoadMore,
-        canloadMore: status === "CanLoadMore",
+        canLoadMore: status === "CanLoadMore",
         isLoadingMore: status === "LoadingMore",
         isLoadingFirstPage: status === "LoadingFirstPage",
         isExhausted: status === "Exhausted",
