@@ -1,4 +1,5 @@
 import { google } from "@ai-sdk/google";
+import { embed } from "ai";
 import { RAG } from "@convex-dev/rag";
 import { components } from "../../_generated/api";
 
