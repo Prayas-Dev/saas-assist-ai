@@ -109,6 +109,18 @@ export const ConversationIdView = ({
     const [isUpdatingStatus, setIsUpdatingStatus] = useState(false);
 
     const updateConversationStatus = useMutation(api.private.conversations.updateStatus);
+
+    const messageToText = (message: any): string => {
+    if (typeof message.content === "string") {
+        return message.content;
+    }
+    if (Array.isArray(message.content)) {
+        return message.content
+            .map((block: any) => (typeof block === "string" ? block : block.text || ""))
+            .join("");
+    }
+    return "";
+};
     const handleToggleStatus = async () => {
         if(!conversation) return;
 
@@ -173,7 +185,7 @@ export const ConversationIdView = ({
                         key={message.id}>
                             <AIMessageContent>
                                 <AIResponse>
-                                    {message.content}
+                                    {messageToText(message)}
                                 </AIResponse>
                             </AIMessageContent>
                             {message.role === "user" && (
