@@ -45,6 +45,18 @@ const formSchema = z.object({
     message: z.string().min(1, "Message is required"),
 })
 
+const messageToText = (message: any): string => {
+    if (typeof message.content === "string") {
+        return message.content;
+    }
+    if (Array.isArray(message.content)) {
+        return message.content
+            .map((block: any) => (typeof block === "string" ? block : block.text || ""))
+            .join("");
+    }
+    return "";
+};
+
 export const WidgetChatScreen = () => {
     const setScreen = useSetAtom(screenAtom)
     const setConversationId = useSetAtom(conversationIdAtom)
@@ -143,7 +155,7 @@ export const WidgetChatScreen = () => {
                                 key={message.id}
                             >
                                 <AIMessageContent>
-                                    <AIResponse>{message.content}</AIResponse>
+                                    <AIResponse>{messageToText(message)}</AIResponse>
                                 </AIMessageContent>
                                 {message.role === "assistant" && (
                                     <DicebearAvatar 
