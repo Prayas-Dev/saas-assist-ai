@@ -8,7 +8,7 @@ export const upsert = mutation({
         value: v.any(),
     },
     handler: async (ctx, args) => {
-         const identity = await ctx.auth.getUserIdentity();
+        const identity = await ctx.auth.getUserIdentity();
         
         if(identity === null){
             throw new ConvexError({
