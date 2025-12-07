@@ -47,7 +47,7 @@ export const search = createTool({
       .join("\n\n");
 
     const response = await generateText({
-      model: google("gemini-1.5-flash"),
+      model: google("gemini-2.0-flash"),
       prompt: `
         You are a support assistant. Use the knowledge base context to answer.
 
