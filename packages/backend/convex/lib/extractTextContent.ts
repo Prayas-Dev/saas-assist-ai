@@ -6,9 +6,9 @@ import { Id } from "../_generated/dataModel";
 import { mime } from "zod/v4";
 
 const AI_MODELS = {
-    image: google.chat("gemini-1.5-pro-latest"),
-    pdf: google.chat("gemini-1.5-pro-latest"),
-    html: google.chat("gemini-1.5-pro-latest")
+    image: google.chat("gemini-2.5-flash-lite-preview-09-2025"),
+    pdf: google.chat("gemini-2.5-flash-lite-preview-09-2025"),
+    html: google.chat("gemini-2.5-flash-lite-preview-09-2025")
 } as const;
 
 const SUPPORTED_IMAGE_TYPES = [
