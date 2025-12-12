@@ -2,7 +2,7 @@ import { mutation, query } from "../_generated/server";
 import { v, ConvexError } from "convex/values";
 import { supportAgent } from "../system/ai/agents/supportAgent";
 import { MessageDoc, saveMessage } from "@convex-dev/agent";
-import { components } from "../_generated/api";
+import { components, internal } from "../_generated/api";
 import { paginationOptsValidator } from "convex/server";
 
 export const getMany = query({
@@ -10,10 +10,10 @@ export const getMany = query({
         contactSessionId: v.id("contactSessions"),
         paginationOpts: paginationOptsValidator,
     },
-    handler: async(ctx, args) => {
+    handler: async (ctx, args) => {
         const contactSession = await ctx.db.get(args.contactSessionId);
 
-        if(!contactSession || contactSession.expiresAt < Date.now()) {
+        if (!contactSession || contactSession.expiresAt < Date.now()) {
             throw new ConvexError({
                 code: "UNAUTHORIZED",
                 message: "Invalid session"
@@ -22,9 +22,9 @@ export const getMany = query({
 
         const conversations = await ctx.db.query("conversations")
             .withIndex("by_contact_session_id", (q) => q.eq("contactSessionId", args.contactSessionId),
-        )
-        .order("desc")
-        .paginate(args.paginationOpts);
+            )
+            .order("desc")
+            .paginate(args.paginationOpts);
 
         const conversationsWithLastMessage = await Promise.all(
             conversations.page.map(async (conversation) => {
@@ -32,10 +32,10 @@ export const getMany = query({
 
                 const messages = await supportAgent.listMessages(ctx, {
                     threadId: conversation.threadId,
-                    paginationOpts: { numItems : 1, cursor: null},
+                    paginationOpts: { numItems: 1, cursor: null },
                 })
 
-                if(messages.page.length > 0){
+                if (messages.page.length > 0) {
                     lastMessage = messages.page[0] ?? null;
                 }
 
@@ -65,7 +65,7 @@ export const getOne = query({
     handler: async (ctx, args) => {
         const session = await ctx.db.get(args.contactSessionId);
 
-        if(!session || session.expiresAt < Date.now()) {
+        if (!session || session.expiresAt < Date.now()) {
             throw new ConvexError({
                 code: "UNAUTHORIZED",
                 message: "Invalid session"
@@ -74,7 +74,7 @@ export const getOne = query({
 
         const conversation = await ctx.db.get(args.conversationId)
 
-        if(!conversation){
+        if (!conversation) {
             throw new ConvexError({
                 code: "NOT_FOUND",
                 message: "Conversation not found"
@@ -82,7 +82,7 @@ export const getOne = query({
             return null;
         }
 
-        if(conversation.contactSessionId !== session._id){
+        if (conversation.contactSessionId !== session._id) {
             throw new ConvexError({
                 code: "UNAUTHORIZED",
                 message: "Invalid session"
@@ -105,18 +105,23 @@ export const create = mutation({
     handler: async (ctx, args) => {
         const session = await ctx.db.get(args.contactSessionId);
 
-        if(!session || session.expiresAt < Date.now()) {
+        if (!session || session.expiresAt < Date.now()) {
             throw new ConvexError({
                 code: "UNAUTHORIZED",
                 message: "Invalid session"
             })
         }
 
+        // This refreshes the user's session if they are within the threshold
+        await ctx.runMutation(internal.system.contactSessions.refresh, {
+            contactSessionId: args.contactSessionId,
+        });
+
         const widgetSettings = await ctx.db.query("widgetSettings")
-        .withIndex("by_organization_id", (q) =>
-            q.eq("organizationId", args.organizationId),
-        )
-        .unique();
+            .withIndex("by_organization_id", (q) =>
+                q.eq("organizationId", args.organizationId),
+            )
+            .unique();
 
         const { threadId } = await supportAgent.createThread(ctx, {
             userId: args.organizationId,

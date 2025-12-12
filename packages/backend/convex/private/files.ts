@@ -1,10 +1,10 @@
 import { action, mutation, query, QueryCtx } from "../_generated/server";
-import { 
+import {
     contentHashFromArrayBuffer,
     Entry,
     EntryId,
-    guessMimeTypeFromContents, 
-    guessMimeTypeFromExtension, 
+    guessMimeTypeFromContents,
+    guessMimeTypeFromExtension,
     vEntryId
 } from "@convex-dev/rag"
 import { ConvexError, v } from "convex/values";
@@ -12,6 +12,7 @@ import { extractTextContent } from "../lib/extractTextContent";
 import rag from "../system/ai/rag";
 import { Id } from "../_generated/dataModel";
 import { paginationOptsValidator } from "convex/server";
+import { internal } from "../_generated/api";
 
 function guessMimeType(filename: string, bytes: ArrayBuffer): string {
     return (
@@ -27,8 +28,8 @@ export const deleteFile = mutation({
     },
     handler: async (ctx, args) => {
         const identity = await ctx.auth.getUserIdentity();
-                
-        if(identity === null){
+
+        if (identity === null) {
             throw new ConvexError({
                 code: "UNAUTHORIZED",
                 message: "Identity not found",
@@ -37,7 +38,7 @@ export const deleteFile = mutation({
 
         const orgId = identity.orgId as string;
 
-        if(!orgId){
+        if (!orgId) {
             throw new ConvexError({
                 code: "UNAUTHORIZED",
                 message: "Organization not found",
@@ -48,7 +49,7 @@ export const deleteFile = mutation({
             namespace: orgId,
         })
 
-        if(!namespace) {
+        if (!namespace) {
             throw new ConvexError({
                 code: "UNAUTHORIZED",
                 message: "Invalid namespace",
@@ -59,21 +60,21 @@ export const deleteFile = mutation({
             entryId: args.entryId,
         })
 
-        if(!entry) {
+        if (!entry) {
             throw new ConvexError({
                 code: "not_found",
                 message: "Entry not found",
             })
         }
 
-        if(entry.metadata?.uploadedBy !== orgId) {
+        if (entry.metadata?.uploadedBy !== orgId) {
             throw new ConvexError({
                 code: "UNAUTHORIZED",
                 message: "Invalid Organization ID"
             })
         }
 
-        if(entry.metadata?.storageId) {
+        if (entry.metadata?.storageId) {
             await ctx.storage.delete(entry.metadata.storageId as Id<"_storage">);
         }
 
@@ -92,8 +93,8 @@ export const addFile = action({
     },
     handler: async (ctx, args) => {
         const identity = await ctx.auth.getUserIdentity();
-                
-        if(identity === null){
+
+        if (identity === null) {
             throw new ConvexError({
                 code: "UNAUTHORIZED",
                 message: "Identity not found",
@@ -102,14 +103,28 @@ export const addFile = action({
 
         const orgId = identity.orgId as string;
 
-        if(!orgId){
+        if (!orgId) {
             throw new ConvexError({
                 code: "UNAUTHORIZED",
                 message: "Organization not found",
             })
         }
 
-        const { bytes, filename, category} = args;
+        const subscription = await ctx.runQuery(
+            internal.system.subscriptions.getByOrganizationId,
+            {
+                organizationId: orgId,
+            },
+        );
+
+        if (subscription?.status !== "active") {
+            throw new ConvexError({
+                code: "BAD_REQUEST",
+                message: "Subscription not active",
+            })
+        }
+
+        const { bytes, filename, category } = args;
 
         const mimeType = args.mimeType || guessMimeType(filename, bytes);
         const blob = new Blob([bytes], { type: mimeType });
@@ -138,7 +153,7 @@ export const addFile = action({
             contentHash: await contentHashFromArrayBuffer(bytes) // to avoid re-inserting if the file content hasn't changed
         });
 
-        if(!created) {
+        if (!created) {
             console.debug("Entry already exists, skipping upload metadata");
             await ctx.storage.delete(storageId);
         }
@@ -157,8 +172,8 @@ export const list = query({
     },
     handler: async (ctx, args) => {
         const identity = await ctx.auth.getUserIdentity();
-                
-        if(identity === null){
+
+        if (identity === null) {
             throw new ConvexError({
                 code: "UNAUTHORIZED",
                 message: "Identity not found",
@@ -167,7 +182,7 @@ export const list = query({
 
         const orgId = identity.orgId as string;
 
-        if(!orgId){
+        if (!orgId) {
             throw new ConvexError({
                 code: "UNAUTHORIZED",
                 message: "Organization not found",
@@ -178,8 +193,8 @@ export const list = query({
             namespace: orgId,
         })
 
-        if(!namespace) {
-            return { page: [], isDone: true, continueCursor: ""};
+        if (!namespace) {
+            return { page: [], isDone: true, continueCursor: "" };
         }
 
         const results = await rag.list(ctx, {
@@ -188,10 +203,10 @@ export const list = query({
         });
 
         const files = await Promise.all(
-            results.page.map( (entry) => convertEntryToPublicFile(ctx, entry) )
+            results.page.map((entry) => convertEntryToPublicFile(ctx, entry))
         );
 
-        const filteredFiles = args.category 
+        const filteredFiles = args.category
             ? files.filter((file) => file.category === args.category)
             : files;
 
@@ -215,7 +230,7 @@ export type PublicFile = {
 
 type EntryMetadata = {
     storageId: Id<"_storage">;
-    uploadedBy: string; 
+    uploadedBy: string;
     filename: string;
     category?: string | null;
 }
@@ -229,10 +244,10 @@ async function convertEntryToPublicFile(
 
     let fileSize = "unknown";
 
-    if(storageId) {
-        try{
+    if (storageId) {
+        try {
             const storageMetadata = await ctx.db.system.get(storageId);
-            if(storageMetadata){
+            if (storageMetadata) {
                 fileSize = formatFileSize(storageMetadata.size);
             }
         } catch (error) {
@@ -244,10 +259,10 @@ async function convertEntryToPublicFile(
     const extension = filename.split(".").pop()?.toLowerCase() || "txt";
 
     let status: "ready" | "processing" | "error" = "error";
-    if(entry.status === "ready") {
+    if (entry.status === "ready") {
         status = "ready"
     }
-    else if(entry.status === "pending"){
+    else if (entry.status === "pending") {
         status = "processing"
     }
 
@@ -265,7 +280,7 @@ async function convertEntryToPublicFile(
 };
 
 function formatFileSize(bytes: number): string {
-    if(bytes === 0){
+    if (bytes === 0) {
         return "0 B";
     }
 

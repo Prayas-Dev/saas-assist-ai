@@ -1,4 +1,4 @@
-import { components } from "../_generated/api";
+import { components, internal } from "../_generated/api";
 import { generateText } from "ai";
 import { action, mutation, query } from "../_generated/server";
 import { v } from "convex/values";
@@ -8,6 +8,7 @@ import { paginationOptsValidator } from "convex/server";
 import { saveMessage } from "@convex-dev/agent";
 import { google } from "@ai-sdk/google";
 import { OPERATOR_MESSAGE_ENHANCEMENT_PROMPT } from "../system/ai/constants";
+import { resolveConversation } from "../system/ai/tools/resolveConversation";
 
 export const enhanceResponse = action({
     args: {
@@ -29,6 +30,20 @@ export const enhanceResponse = action({
             throw new ConvexError({
                 code: "UNAUTHORIZED",
                 message: "Organization not found",
+            })
+        }
+
+        const subscription = await ctx.runQuery(
+            internal.system.subscriptions.getByOrganizationId,
+            {
+                organizationId: orgId, 
+            },
+        );
+
+        if (subscription?.status !== "active"){
+            throw new ConvexError({
+                code: "BAD_REQUEST",
+                message: "Subscription not active",
             })
         }
 
