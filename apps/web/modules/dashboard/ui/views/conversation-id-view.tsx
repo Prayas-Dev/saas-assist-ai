@@ -35,9 +35,10 @@ import { ConversationStatusButton } from "../components/conversation-status-butt
 import { useState } from "react";
 import { cn } from "@workspace/ui/lib/utils";
 import { Skeleton } from "@workspace/ui/components/skeleton"
+import { toast } from "sonner";
 
 const formSchema = z.object({
-    message: z.string().min(1, "Message if required"),
+    message: z.string().min(1, "Message is required"),
 })
 
 export const ConversationIdView = ({
@@ -85,6 +86,7 @@ export const ConversationIdView = ({
 
             form.setValue("message", response);
         } catch (error) {
+            toast.error("Something went wrong");
             console.error(error);
         }
         finally{
@@ -180,8 +182,8 @@ export const ConversationIdView = ({
                     />
                     {toUIMessages(messages.results ?? [])?.map((message) => (
                         <AIMessage 
-                        // in reverse, because we are watching from "assistant" perspective
-                        from={message.role === "user" ? "assistant" : "user"}
+                        // From the dashboard operator's perspective, a "user" role is the other person.
+                        from={message.role === "user" ? "user" : "assistant"}
                         key={message.id}>
                             <AIMessageContent>
                                 <AIResponse>
