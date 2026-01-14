@@ -1,0 +1,49 @@
+erDiagram
+    organizations {
+        string organizationId
+    }
+
+    subscriptions {
+        string organizationId
+        string status
+    }
+
+    widgetSettings {
+        string organizationId
+        string greetMessage
+        object defaultSuggestions
+        object vapiSettings
+    }
+
+    plugins {
+        string organizationId
+        string service
+        string secretName
+    }
+
+    conversations {
+        string threadId
+        string organizationId
+        id contactSessionId
+        string status
+    }
+
+    contactSessions {
+        id contactSessionId
+        string name
+        string email
+        string organizationId
+        number expiresAt
+        object metadata
+    }
+
+    users {
+        string name
+    }
+
+    organizations ||--o{ subscriptions : "has"
+    organizations ||--o{ widgetSettings : "has"
+    organizations ||--o{ plugins : "has"
+    organizations ||--o{ conversations : "has"
+    organizations ||--o{ contactSessions : "has"
+    contactSessions ||--o{ conversations : "has"

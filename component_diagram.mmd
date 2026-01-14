@@ -1,0 +1,26 @@
+graph LR
+
+    subgraph Apps
+        WebApp
+        Widget
+        EmbedScript
+    end
+
+    subgraph Packages
+        UI
+        Backend
+    end
+
+    subgraph Services
+        Convex
+        Vapi
+    end
+
+    WebApp --> UI
+    Widget --> UI
+    WebApp --> Backend
+    Widget --> Backend
+    EmbedScript --> Widget
+
+    Backend --> Convex
+    Widget --> Vapi

@@ -188,21 +188,21 @@ NEXT_PUBLIC_CONVEX_URL=
 ## 🖼️ Gallery
 
 ### Images
-![Conversation Page](../Images/Conversation%20page.png)
-![Integrations](../Images/Integrations.png)
-![Knowledge Base](../Images/Knowledge%20Base.png)
-![Organization Page 1](../Images/Organization%20Page%201.png)
-![Organization Page 2](../Images/Organization%20Page%202.png)
-![Organization Page 3](../Images/Organization%20Page%203.png)
-![Sentry Page](../Images/Sentry%20Page.png)
-![Voice Assistant](../Images/Voice%20assistant.png)
-![Widget Customization](../Images/Widget%20Customization.png)
+![Conversation Page](public/images/Conversation%20page.png)
+![Integrations](public/images/Integrations.png)
+![Knowledge Base](public/images/Knowledge%20Base.png)
+![Organization Page 1](public/images/Organization%20Page%201.png)
+![Organization Page 2](public/images/Organization%20Page%202.png)
+![Organization Page 3](public/images/Organization%20Page%203.png)
+![Sentry Page](public/images/Sentry%20Page.png)
+![Voice Assistant](public/images/Voice%20assistant.png)
+![Widget Customization](public/images/Widget%20Customization.png)
 
 ### Videos
-[Part 1](../Images/Part%201.mp4)
-[Part 2](../Images/Part%202.mp4)
-[Part 3](../Images/Part%203.mp4)
-[Saas assist ai - Made with Clipchamp](../Images/Saas%20assist%20ai%20-%20Made%20with%20Clipchamp.mp4)
+[Part 1](public/images/Part%201.mp4)
+[Part 2](public/images/Part%202.mp4)
+[Part 3](public/images/Part%203.mp4)
+[Saas assist ai - Made with Clipchamp](public/images/Saas%20assist%20ai%20-%20Made%20with%20Clipchamp.mp4)
 
 ---
 

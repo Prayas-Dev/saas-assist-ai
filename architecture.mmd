@@ -1,0 +1,30 @@
+graph TD
+    subgraph "SaaS Customer"
+        A[SaaS Customer / Developer]
+    end
+
+    subgraph "End User"
+        B[End User / Website Visitor]
+    end
+
+    subgraph "SaaS Platform"
+        C(apps/web - Dashboard)
+        D(packages/backend - Convex)
+        E(apps/widget - Voice UI)
+        F[Vapi.ai - External API]
+    end
+
+    subgraph "Customer's Website"
+        G[Customer's External Website]
+        H(apps/embed - Script)
+    end
+
+    A -- "1. Configures & Manages" --> C
+    C -- "2. Saves/Loads Config" --> D
+    B -- "5. Visits Site" --> G
+    G -- "6. Loads Script" --> H
+    H -- "7. Loads Widget in iframe" --> E
+    E -- "8. Gets Config" --> D
+    E -- "9. Streams Voice" --> F
+    D -- "4. Stores Logs & State" --> D
+    C -- "3. Reads Logs & State" --> D
