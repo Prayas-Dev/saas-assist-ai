@@ -2,12 +2,6 @@
 
 **[Live Demo](https://saas-assist-ai-web.vercel.app/conversations)**
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Status-Work%20in%20Progress-yellow?style=flat" alt="Status" />
-  <img src="https://img.shields.io/badge/AI-Enabled-purple?style=flat" alt="AI Enabled" />
-  <img src="https://img.shields.io/badge/SaaS-Boilerplate-blue?style=flat" alt="SaaS" />
-  <img src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat" alt="License" />
-</p>
 
 <p align="center">
   <b>Open-source, production-grade boilerplate for building multi-tenant, voice-based AI assistants.</b>
