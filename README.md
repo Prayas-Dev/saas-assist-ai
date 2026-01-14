@@ -256,12 +256,8 @@ NEXT_PUBLIC_CONVEX_URL=
 ![Sentry Page](public/images/Sentry%20Page.png)
 ![Voice Assistant](public/images/Voice%20assistant.png)
 ![Widget Customization](public/images/Widget%20Customization.png)
-
-### Videos
-[Part 1](public/images/Part%201.mp4)
-[Part 2](public/images/Part%202.mp4)
-[Part 3](public/images/Part%203.mp4)
-[Saas assist ai - Made with Clipchamp](public/images/Saas%20assist%20ai%20-%20Made%20with%20Clipchamp.mp4)
+![Chat Section](public/images/Chat%20section%20img%202.png)
+![Chat Section](public/images/Chat%20section%20img%201.png)
 
 ---
 
