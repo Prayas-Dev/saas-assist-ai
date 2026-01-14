@@ -49,11 +49,14 @@ This project uses a **monorepo architecture** powered by pnpm and Turborepo to m
 5.  The AI Widget fetches its configuration from the **Convex Backend** and initiates a voice session with **Vapi.ai**.
 6.  Conversation data is logged back to the **Convex Backend**.
 
-For a visual representation, see the architecture diagrams included in the repository:
-![Architecture Diagram](architecture.png)
-![Component Diagram](component_diagram1.png)
-![Authentication Flow](authentication_flow.png)
-![Database Schema](database_schema.png)
+### System Diagrams
+
+| Diagram                 | Description                                                                                                                                                                                                                                                                                       |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **High-Level Architecture** | This diagram provides a high-level overview of the entire system, showing the relationships between the frontend applications (web, widget, embed), the backend (Convex), and third-party services (Clerk, Vapi, AWS). <br><br> ![Architecture Diagram](architecture.png)                             |
+| **Component Diagram**       | This diagram offers a more detailed view of the frontend and backend components, illustrating how they interact. It shows the different modules within the Next.js applications and the serverless functions in the Convex backend. <br><br> ![Component Diagram](component_diagram1.png)       |
+| **Authentication Flow**   | This diagram illustrates the authentication process, showing how users and organizations are authenticated using Clerk and how the session is managed between the frontend and backend. <br><br> ![Authentication Flow](authentication_flow.png) |
+| **Database Schema**       | This diagram visualizes the database schema, showing the different tables, their columns, and the relationships between them. This helps developers understand how data is organized and stored in the Convex database. <br><br> ![Database Schema](database_schema.png)             |
 
 ---
 
