@@ -50,10 +50,10 @@ This project uses a **monorepo architecture** powered by pnpm and Turborepo to m
 6.  Conversation data is logged back to the **Convex Backend**.
 
 For a visual representation, see the architecture diagrams included in the repository:
-- `architecture.png`
-- `component_diagram.png`
-- `authentication_flow.png`
-- `database_schema.png`
+![Architecture Diagram](architecture.png)
+![Component Diagram](component_diagram1.png)
+![Authentication Flow](authentication_flow.png)
+![Database Schema](database_schema.png)
 
 ---
 
