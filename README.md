@@ -1,44 +1,62 @@
 # SaaS Assist AI
 
-**[Live Demo](https://saas-assist-ai-web.vercel.app/conversations)**
-
-
 <p align="center">
-  <b>Open-source, production-grade boilerplate for building multi-tenant, voice-based AI assistants.</b>
+  <b>
+    Open-source, production-grade boilerplate for building multi-tenant, voice-based AI assistants.
+  </b>
 </p>
 
+---
+
+## 🔴 Video Demo
+
+Watch the complete walkthrough and live demonstration of **SaaS Assist AI**, including the dashboard, voice assistant interaction, and system architecture overview.
+
+👉 <a href="https://youtu.be/2r0u9rDGtgA" target="_blank" rel="noopener noreferrer">
+  Watch Demo on YouTube
+</a>
+
+---
+
+## 🌐 Live Demo
+
+Experience the application in action through the hosted demo.  
+You can interact with the voice-enabled AI assistant and explore the core SaaS functionality.
+
+👉 <a href="https://saas-assist-ai-web.vercel.app/conversations" target="_blank" rel="noopener noreferrer">
+  Open Live Demo
+</a>
 
 ---
 
 ### Built With
 
 <p align="center">
-  <a href="https://nextjs.org/" target="_blank">
+  <a href="https://nextjs.org/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
   </a>
-  <a href="https://react.dev/" target="_blank">
+  <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
   </a>
-  <a href="https://www.typescriptlang.org/" target="_blank">
+  <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
   </a>
-  <a href="https://tailwindcss.com/" target="_blank">
+  <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
   </a>
-  <a href="https://www.convex.dev/" target="_blank">
+  <a href="https://www.convex.dev/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/Convex-00B5AD?style=for-the-badge&logo=convex&logoColor=white" alt="Convex">
   </a>
-  <a href="https://clerk.com/" target="_blank">
+  <a href="https://clerk.com/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white" alt="Clerk">
   </a>
-  <a href="https://vapi.ai/" target="_blank">
+  <a href="https://vapi.ai/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/Vapi.ai-FF6B6B?style=for-the-badge" alt="Vapi.ai">
   </a>
-  <a href="https://aws.amazon.com/secrets-manager/" target="_blank">
+  <a href="https://aws.amazon.com/secrets-manager/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/AWS_Secrets_Manager-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS Secrets Manager">
   </a>
 </p>
-
 
 ---
 
