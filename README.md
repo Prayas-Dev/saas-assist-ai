@@ -6,26 +6,6 @@
   </b>
 </p>
 
----
-
-## 🔴 Video Demo
-
-Watch the complete walkthrough and live demonstration of **SaaS Assist AI**, including the dashboard, voice assistant interaction, and system architecture overview.
-
-👉 <a href="https://youtu.be/2r0u9rDGtgA" target="_blank" rel="noopener noreferrer">
-  Watch Demo on YouTube
-</a>
-
----
-
-## 🌐 Live Demo
-
-Experience the application in action through the hosted demo.  
-You can interact with the voice-enabled AI assistant and explore the core SaaS functionality.
-
-👉 <a href="https://saas-assist-ai-web.vercel.app/conversations" target="_blank" rel="noopener noreferrer">
-  Open Live Demo
-</a>
 
 ---
 
@@ -70,6 +50,27 @@ Building a full-featured, multi-tenant SaaS application with a sophisticated AI 
 - **Automated Customer Support:** Embed a voice assistant on a website to answer common questions.
 - **Interactive Product Tours:** Guide users through a product with an interactive voice agent.
 - **AI-Powered Data Entry:** Fill out forms and capture information through a voice conversation.
+
+---
+
+## 🔴 Video Demo
+
+Watch the complete walkthrough and live demonstration of **SaaS Assist AI**, including the dashboard, voice assistant interaction, and system architecture overview.
+
+👉 <a href="https://youtu.be/2r0u9rDGtgA" target="_blank" rel="noopener noreferrer">
+  Watch Demo on YouTube
+</a>
+
+---
+
+## 🌐 Live Demo
+
+Experience the application in action through the hosted demo.  
+You can interact with the voice-enabled AI assistant and explore the core SaaS functionality.
+
+👉 <a href="https://saas-assist-ai-web.vercel.app/conversations" target="_blank" rel="noopener noreferrer">
+  Open Live Demo
+</a>
 
 ---
 
