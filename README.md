@@ -1,20 +1,20 @@
 # 🤖 SaaS Assist AI
 
 <p align="center">
-  <a href="https://github.com/Prayas-Dev/saas-assist-ai/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/Prayas-Dev/saas-assist-ai" alt="License">
+  <a href="https://saas-assist-ai-web.vercel.app/conversations" target="_blank">
+    <img src="https://img.shields.io/badge/Live-Demo-brightgreen" alt="Live Demo">
   </a>
-  <a href="https://github.com/Prayas-Dev/saas-assist-ai/stargazers">
-    <img src="https://img.shields.io/github/stars/Prayas-Dev/saas-assist-ai" alt="Stars">
+  <a href="https://www.repostatus.org/#wip" target="_blank">
+    <img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status">
   </a>
-  <a href="https://github.com/Prayas-Dev/saas-assist-ai/network/members">
-    <img src="https://img.shields.io/github/forks/Prayas-Dev/saas-assist-ai" alt="Forks">
+  <a href="#" target="_blank">
+    <img src="https://img.shields.io/badge/tech%20stack-Next.js%2C%20Convex%2C%20Vapi.ai-blueviolet" alt="Tech Stack">
   </a>
-  <a href="https://github.com/Prayas-Dev/saas-assist-ai/issues">
-    <img src="https://img.shields.io/github/issues/Prayas-Dev/saas-assist-ai" alt="Issues">
+  <a href="#" target="_blank">
+    <img src="https://img.shields.io/badge/focus-AI%2C%20SaaS-important" alt="Focus">
   </a>
-  <a href="https://github.com/Prayas-Dev/saas-assist-ai/commits/main">
-    <img src="https://img.shields.io/github/last-commit/Prayas-Dev/saas-assist-ai" alt="Last Commit">
+  <a href="https://github.com/Prayas-Dev/saas-assist-ai/blob/main/LICENSE" target="_blank">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License">
   </a>
 </p>
 
