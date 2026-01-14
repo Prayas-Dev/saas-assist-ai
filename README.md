@@ -1,6 +1,56 @@
-# SaaS Assist AI
+# 🤖 SaaS Assist AI
+
+<p align="center">
+  <a href="https://github.com/Prayas-Dev/saas-assist-ai/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/Prayas-Dev/saas-assist-ai" alt="License">
+  </a>
+  <a href="https://github.com/Prayas-Dev/saas-assist-ai/stargazers">
+    <img src="https://img.shields.io/github/stars/Prayas-Dev/saas-assist-ai" alt="Stars">
+  </a>
+  <a href="https://github.com/Prayas-Dev/saas-assist-ai/network/members">
+    <img src="https://img.shields.io/github/forks/Prayas-Dev/saas-assist-ai" alt="Forks">
+  </a>
+  <a href="https://github.com/Prayas-Dev/saas-assist-ai/issues">
+    <img src="https://img.shields.io/github/issues/Prayas-Dev/saas-assist-ai" alt="Issues">
+  </a>
+  <a href="https://github.com/Prayas-Dev/saas-assist-ai/commits/main">
+    <img src="https://img.shields.io/github/last-commit/Prayas-Dev/saas-assist-ai" alt="Last Commit">
+  </a>
+</p>
 
 An open-source, production-grade boilerplate for building multi-tenant, voice-based AI assistants.
+
+---
+
+### Built With
+
+<p align="center">
+  <a href="https://nextjs.org/" target="_blank">
+    <img src="https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
+  </a>
+  <a href="https://react.dev/" target="_blank">
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+  </a>
+  <a href="https://www.typescriptlang.org/" target="_blank">
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+  </a>
+  <a href="https://tailwindcss.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+  </a>
+  <a href="https://www.convex.dev/" target="_blank">
+    <img src="https://img.shields.io/badge/Convex-00B5AD?style=for-the-badge&logo=convex&logoColor=white" alt="Convex">
+  </a>
+  <a href="https://clerk.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white" alt="Clerk">
+  </a>
+  <a href="https://vapi.ai/" target="_blank">
+    <img src="https://img.shields.io/badge/Vapi.ai-FF6B6B?style=for-the-badge" alt="Vapi.ai">
+  </a>
+  <a href="https://aws.amazon.com/secrets-manager/" target="_blank">
+    <img src="https://img.shields.io/badge/AWS_Secrets_Manager-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS Secrets Manager">
+  </a>
+</p>
+
 
 ---
 
