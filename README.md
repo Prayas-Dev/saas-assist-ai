@@ -256,8 +256,7 @@ NEXT_PUBLIC_CONVEX_URL=
 ![Sentry Page](public/images/Sentry%20Page.png)
 ![Voice Assistant](public/images/Voice%20assistant.png)
 ![Widget Customization](public/images/Widget%20Customization.png)
-![Chat Section](public/images/Chat%20section%20img%202.png)
-![Chat Section](public/images/Chat%20section%20img%201.png)
+![Chat Section](public/images/Chat%20section.jpeg)
 
 ---
 
